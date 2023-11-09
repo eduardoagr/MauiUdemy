@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MultiPageNotesApp.View.HomePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:font="clr-namespace:MultiPageNotesApp.Helpers"
+    xmlns:model="clr-namespace:MultiPageNotesApp.Models"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:local="clr-namespace:MultiPageNotesApp"
+    xmlns:vm="clr-namespace:MultiPageNotesApp.ViewModels"
+    Title="{Binding Title}"
+    x:DataType="vm:HomePageViewModel">
+
+    <ContentPage.Resources>
+        <local:HexToColorConverter x:Key="HexToColorConverter"/>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding AddNewNoteCommand}">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                    FontFamily="Material"
+                    Glyph="{Static font:materialFont.Note_add}"
+                    Size="30" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            Command="{Binding AppearingCommand}"
+            EventName="Appearing" />
+    </ContentPage.Behaviors>
+
+    <CollectionView ItemsSource="{Binding Notes}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="model:Note">
+                <Border
+                    Stroke="Silver"
+                    StrokeThickness="2">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="0,80,0,80" />
+                    </Border.StrokeShape>
+                    <Grid
+                        Padding="5"
+                        ColumnDefinitions="40,*">
+                        <Label
+                            Grid.RowSpan="3"
+                            FontFamily="Material"
+                            FontSize="30"
+                            HorizontalTextAlignment="Center"
+                            Text="{Static font:materialFont.Sticky_note_2}"
+                            TextColor="{Binding Color, Converter={StaticResource HexToColorConverter}}"
+                            VerticalTextAlignment="Center" />
+                        <VerticalStackLayout Grid.Column="1">
+                            <Label Text="{Binding Title}" />
+                            <Line BackgroundColor="Black" />
+                            <Label Text="{Binding CreationDate, StringFormat='{}{0:dddd MMMM yyyy}'}" />
+                            <Label Text="{Binding Id}" />
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:HomePageViewModel}}, Path=GoToDetailsCommand}"
+                                                      CommandParameter="{Binding .}"/>
+                            </VerticalStackLayout.GestureRecognizers>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Border>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MultiPageNotesApp.View.AddNotePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:font="clr-namespace:MultiPageNotesApp.Helpers"
+    xmlns:local="clr-namespace:MultiPageNotesApp"
+    xmlns:models="clr-namespace:MultiPageNotesApp.Models"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:vm="clr-namespace:MultiPageNotesApp.ViewModels"
+    x:DataType="vm:AddNotePageViewModel"
+    Shell.NavBarIsVisible="False">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            Command="{Binding AppearingCommand}"
+            EventName="Appearing" />
+    </ContentPage.Behaviors>
+
+    <Grid
+        RowDefinitions="60,40,80,*"
+        RowSpacing="20">
+        <HorizontalStackLayout BackgroundColor="{StaticResource Primary}">
+            <Image
+                Margin="10,0,0,0"
+                HeightRequest="24"
+                Source="arrow_left.svg"
+                VerticalOptions="Center"
+                WidthRequest="24">
+                <Image.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="White" />
+                </Image.Behaviors>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CreateNewNoteCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Label
+                Padding="10,0,0,0"
+                FontSize="24"
+                Text="{Binding Title}"
+                TextColor="White"
+                VerticalTextAlignment="Center" />
+        </HorizontalStackLayout>
+
+        <Entry
+            Grid.Row="1"
+            Margin="10,0,10,0"
+            Placeholder="Title"
+            Text="{Binding Note.Title}" />
+
+        <Label
+            Grid.Row="2"
+            Margin="10,10,0,0"
+            FontFamily="Material"
+            FontSize="60"
+            HorizontalTextAlignment="Start"
+            Text="{Static font:materialFont.Sticky_note_2}"
+            TextColor="{Binding Note.Color}"
+            VerticalTextAlignment="Center" />
+
+        <StackLayout
+            Grid.Row="2"
+            Margin="60,0,10,0"
+            BindableLayout.ItemsSource="{Binding ColorItems}"
+            HorizontalOptions="Center"
+            Orientation="Horizontal"
+            Spacing="10">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate x:DataType="models:ColorItem">
+                    <Ellipse
+                        Fill="{Binding Color}"
+                        HeightRequest="40"
+                        Stroke="Black"
+                        StrokeThickness="5"
+                        WidthRequest="40">
+                        <Ellipse.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:AddNotePageViewModel}}, Path=SelectColorCommand}"
+                                CommandParameter="{Binding .}" />
+                        </Ellipse.GestureRecognizers>
+                    </Ellipse>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </StackLayout>
+
+        <Border
+            Grid.Row="3"
+            Margin="10,0,10,0"
+            StrokeThickness="2">
+            <Editor
+                Placeholder="Write your note here"
+                Text="{Binding Note.Content}" />
+        </Border>
+
+    </Grid>
+</ContentPage>

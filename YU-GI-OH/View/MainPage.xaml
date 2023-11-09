@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="YU_GI_OH.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:YU_GI_OH.Model"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:vm="clr-namespace:YU_GI_OH.ViewModel"
+    Title="Decks"
+    x:DataType="vm:MainPageViewModel">
+
+    <StackLayout BindableLayout.ItemsSource="{Binding Decks}">
+        <BindableLayout.ItemTemplate>
+            <DataTemplate x:DataType="model:DeckInfo">
+                <Border Stroke="Black">
+                    <HorizontalStackLayout>
+                        <Image
+                            Margin="10"
+                            Aspect="AspectFill"
+                            HeightRequest="80"
+                            WidthRequest="80">
+                            <Image.Source>
+                                <UriImageSource
+                                    CacheValidity="{Static sys:TimeSpan.MaxValue}"
+                                    Uri="{Binding imageURL}" />
+                            </Image.Source>
+                        </Image>
+                        <Label
+                            Text="{Binding deckName}"
+                            VerticalTextAlignment="Center" />
+                        <HorizontalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source={RelativeSource AncestorType={Type vm:MainPageViewModel}}, Path=SelectedItemCommand}"
+                                CommandParameter="{Binding .}" />
+                        </HorizontalStackLayout.GestureRecognizers>
+                    </HorizontalStackLayout>
+                </Border>
+            </DataTemplate>
+        </BindableLayout.ItemTemplate>
+    </StackLayout>
+</ContentPage>

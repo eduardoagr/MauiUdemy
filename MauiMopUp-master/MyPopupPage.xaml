@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mopups:PopupPage
+    x:Class="MauiMopUp.MyPopupPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:MauiMopUp"
+    x:DataType="vm:MyPopupPageViewModel"
+    xmlns:mopups="clr-namespace:Mopups.Pages;assembly=Mopups"
+    xmlns:mopupsanim="clr-namespace:Mopups.Animations;assembly=Mopups"
+    Title="{Binding Data}"
+    BackgroundColor="#80000000"
+    CloseWhenBackgroundIsClicked="False">
+    
+    <mopups:PopupPage.Animation>
+        <mopupsanim:ScaleAnimation
+            DurationIn="500"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Center"
+            PositionOut="Center" />
+    </mopups:PopupPage.Animation>
+    <ScrollView
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
+        <Border
+            BackgroundColor="White"
+            HeightRequest="300"
+            HorizontalOptions="Center"
+            WidthRequest="300">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="40,0,0,40" />
+            </Border.StrokeShape>
+            <VerticalStackLayout Spacing="3">
+                <Entry
+                    x:Name="UsernameEntry"
+                    HorizontalOptions="Center"
+                    Placeholder="name"
+                    Text="{Binding Name}"
+                    VerticalOptions="Center" />
+                
+                <Button
+                    x:Name="LoginButton"
+                    Margin="10,5"
+                    Command="{Binding closePopUpCommand}"
+                    HorizontalOptions="Fill"
+                    Text="Login"
+                    VerticalOptions="EndAndExpand" />
+            </VerticalStackLayout>
+        </Border>
+
+    </ScrollView>
+
+</mopups:PopupPage>
