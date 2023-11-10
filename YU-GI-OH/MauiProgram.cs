@@ -6,6 +6,7 @@ global using Microsoft.Extensions.Logging;
 
 global using System.Collections.ObjectModel;
 global using System.Diagnostics;
+global using System.Globalization;
 global using System.Net.Http.Json;
 global using System.Text.Json;
 

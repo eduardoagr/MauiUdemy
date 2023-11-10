@@ -11,9 +11,9 @@
         public string card_type { get; set; }
         public string type { get; set; }
         public string family { get; set; }
-        public int atk { get; set; }
-        public int def { get; set; }
-        public int level { get; set; }
+        public int? atk { get; set; }
+        public int? def { get; set; }
+        public int? level { get; set; }
         public object property { get; set; }
     }
 

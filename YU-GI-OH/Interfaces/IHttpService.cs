@@ -2,5 +2,6 @@
     public interface IHttpService {
 
         Task<object> GetAsync(string url);
+        Task<byte[]> GetByteArrayAsync(string url);
     }
 }

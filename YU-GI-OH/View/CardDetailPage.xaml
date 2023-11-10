@@ -3,11 +3,16 @@
     x:Class="YU_GI_OH.View.CardDetailPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:YU_GI_OH"
     xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:vm="clr-namespace:YU_GI_OH.ViewModel"
     Title="{Binding Card.name}"
     x:DataType="vm:CardDetailPageViewModel">
 
+    <ContentPage.Resources>
+        <converter:NullToEmptyStringConverter x:Key="NullConverter" />
+    </ContentPage.Resources>
+    
     <ContentPage.Behaviors>
         <mct:EventToCommandBehavior
             Command="{Binding ApearingCommand}"
@@ -15,16 +20,19 @@
     </ContentPage.Behaviors>
 
 
-    <Grid
-        BackgroundColor="ForestGreen"
-        RowDefinitions="300,40,40,*">
+    <Grid RowDefinitions="200,*,*,*">
 
         <Image
-            HorizontalOptions="CenterAndExpand"
             Margin="20"
+            HorizontalOptions="CenterAndExpand"
             Source="{Binding Card.cardImageUrl}" />
 
-        <Label Text="{Binding CardDetail.atk}"/>
+        <Label
+            Grid.Row="2"
+            Text="{Binding CardDetail.atk, Converter={StaticResource NullConverter}}" />
+        <Label
+            Grid.Row="3"
+            Text="{Binding CardDetail.def, Converter={StaticResource NullConverter}}" />
     </Grid>
 
 </ContentPage>

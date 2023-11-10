@@ -34,8 +34,14 @@ public partial class CardsPageViewModel(IHttpService httpService) : ObservableOb
 
         var data = JsonSerializer.Deserialize<Rootobject>(jsonString);
 
+
         CardList.Clear();
         foreach (var card in data.data.cards) {
+
+            var encodedCardName = Uri.EscapeDataString(card.name);
+
+            card.ImageBytes = await httpService.GetByteArrayAsync($"http://yugiohprices.com/api/card_image/{encodedCardName}");
+
             CardList.Add(card);
         }
     }

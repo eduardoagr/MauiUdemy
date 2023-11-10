@@ -16,4 +16,24 @@ public class HttpService(HttpClient client) : IHttpService {
         }
         return default;
     }
+
+
+    public async Task<byte[]> GetByteArrayAsync(string url) {
+
+        try {
+
+            using var res = await client.GetAsync(url);
+            if (res.IsSuccessStatusCode) {
+                using var stream = await res.Content.ReadAsStreamAsync();
+                using var memoryStream = new MemoryStream();
+                await stream.CopyToAsync(memoryStream);
+                return memoryStream.ToArray();
+            }
+        } catch (Exception e) {
+            Debug.WriteLine(e.Message);
+        }
+
+        return default;
+    }
 }
+

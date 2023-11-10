@@ -15,5 +15,7 @@ public class Card {
     public string property { get; set; }
     public string family { get; set; }
     public string type { get; set; }
-    public string cardImageUrl => $"http://yugiohprices.com/api/card_image/{name}";
+    public string cardImageUrl { get; set; }
+
+    public byte[] ImageBytes { get; set; }
 }
