@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VkvZcbPtITFysfD0texKqCgBuSs//8+dlUJjvunhjJZdWMwxBK5wvFyFnMOBZVOdXnIiBqxwMf1zKoEAa+0pmg==",
+  "dgSpecHash": "pW/LkszQMf2ATffm/wD7tj0Gb0N4j71hk+/U1YRwEpf6CnK9APHV+fHScamLYYbg+aXgZ+XqZp8jgCKKNc8RRg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\egome\\Documents\\Maui Course\\YU-GI-OH\\YU-GI-OH.csproj",
+  "projectFilePath": "C:\\Users\\egome\\Documents\\Maui Course\\MauiUdemy\\YU-GI-OH\\YU-GI-OH.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\egome\\.nuget\\packages\\communitytoolkit.maui\\6.1.0\\communitytoolkit.maui.6.1.0.nupkg.sha512",
     "C:\\Users\\egome\\.nuget\\packages\\communitytoolkit.maui.core\\6.1.0\\communitytoolkit.maui.core.6.1.0.nupkg.sha512",

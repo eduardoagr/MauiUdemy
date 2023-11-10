@@ -57,9 +57,20 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="View\CardDetailPage.xaml.cs">
+	    <DependentUpon>CardDetailPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="View\CardDetailPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\CardsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionYUGIOHHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>

@@ -7,6 +7,7 @@
     xmlns:model="clr-namespace:YU_GI_OH.Model"
     xmlns:vm="clr-namespace:YU_GI_OH.ViewModel"
     Title="{Binding DeckInfo.deckName}"
+    x:Name="cardsPage"
     x:DataType="vm:CardsPageViewModel">
 
     <ContentPage.Behaviors>
@@ -17,13 +18,20 @@
 
     <CollectionView
         ItemsLayout="VerticalGrid, 4"
-        ItemsSource="{Binding CardList}">
+        ItemsSource="{Binding CardList}"
+        SelectionMode="None">
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="model:Card">
                 <Image
                     Margin="10"
                     Aspect="AspectFit"
-                    Source="{Binding cardImageUrl}" />
+                    Source="{Binding cardImageUrl}">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding Source={x:Reference cardsPage}, Path=BindingContext.SelectedCardCommand}"
+                            CommandParameter="{Binding .}" />
+                    </Image.GestureRecognizers>
+                </Image>
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>

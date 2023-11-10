@@ -1,10 +1,7 @@
-﻿using System.Text.Json;
-
-namespace YU_GI_OH.ViewModel;
+﻿namespace YU_GI_OH.ViewModel;
 
 [QueryProperty("DeckInfo", "DeckInfo")]
 public partial class CardsPageViewModel(IHttpService httpService) : ObservableObject {
-
 
     [ObservableProperty]
     DeckInfo deckInfo;
@@ -15,6 +12,19 @@ public partial class CardsPageViewModel(IHttpService httpService) : ObservableOb
     async Task OnApearing() {
         await GetCardNamesAsync(DeckInfo.deckName);
     }
+
+    [RelayCommand]
+    async Task SelectedCard(Card card) {
+
+        if (card != null) {
+            await Shell.Current.GoToAsync($"{nameof(CardDetailPage)}", true, new Dictionary<string, object> {
+
+           {"Card", card }
+
+           });
+        }
+    }
+
 
     public async Task GetCardNamesAsync(string deckName) {
 

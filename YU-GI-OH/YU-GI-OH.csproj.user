@@ -17,6 +17,9 @@
     <MauiXaml Update="View\AppShell.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="View\CardDetailPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="View\CardsPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

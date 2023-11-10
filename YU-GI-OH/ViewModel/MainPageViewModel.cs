@@ -8,16 +8,14 @@ public partial class MainPageViewModel : ObservableObject {
     }
 
     [RelayCommand]
-    public void SelectedItem(DeckInfo deckInfo) {
+    async Task SelectedItem(DeckInfo deckInfo) {
 
         if (deckInfo != null) {
-
-            Shell.Current.GoToAsync($"{nameof(CardsPage)}", true, new Dictionary<string, object> {
+            await Shell.Current.GoToAsync($"{nameof(CardsPage)}", true, new Dictionary<string, object> {
 
                 { "DeckInfo", deckInfo }
             });
         }
-
     }
 
     private void LoadData() {

@@ -7,6 +7,7 @@ global using Microsoft.Extensions.Logging;
 global using System.Collections.ObjectModel;
 global using System.Diagnostics;
 global using System.Net.Http.Json;
+global using System.Text.Json;
 
 global using YU_GI_OH.Interfaces;
 global using YU_GI_OH.Model;
@@ -14,33 +15,36 @@ global using YU_GI_OH.Services;
 global using YU_GI_OH.View;
 global using YU_GI_OH.ViewModel;
 
-namespace YU_GI_OH {
-    public static class MauiProgram {
-        public static MauiApp CreateMauiApp() {
-            var builder = MauiApp.CreateBuilder();
-            builder
-                .UseMauiApp<App>()
-                .UseMauiCommunityToolkit()
-                .ConfigureFonts(fonts => {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+namespace YU_GI_OH;
+public static class MauiProgram {
+    public static MauiApp CreateMauiApp() {
+        var builder = MauiApp.CreateBuilder();
+        builder
+            .UseMauiApp<App>()
+            .UseMauiCommunityToolkit()
+            .ConfigureFonts(fonts => {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            });
 
-            // Register HttpClient
-            builder.Services.AddSingleton<HttpClient>();
+        // Register HttpClient
+        builder.Services.AddSingleton<HttpClient>();
 
 #if DEBUG
-            builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
 #endif
 
-            builder.Services.AddSingleton<IHttpService, HttpService>();
-            builder.Services.AddSingleton<AppShell>();
-            builder.Services.AddSingleton<MainPage>();
-            builder.Services.AddSingleton<MainPageViewModel>();
-            builder.Services.AddSingleton<CardsPage>();
-            builder.Services.AddTransient<CardsPageViewModel>();
+        builder.Services.AddSingleton<IHttpService, HttpService>();
+        builder.Services.AddSingleton<AppShell>();
+        builder.Services.AddSingleton<MainPage>();
+        builder.Services.AddSingleton<CardsPage>();
+        builder.Services.AddTransient<CardDetailPage>();
+        builder.Services.AddTransient<CardDetailPageViewModel>();
+        builder.Services.AddSingleton<MainPageViewModel>();
+        builder.Services.AddTransient<CardsPageViewModel>();
 
-            return builder.Build();
-        }
+
+
+        return builder.Build();
     }
 }

@@ -26994,11 +26994,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\egome\\Documents\\Maui Course\\YU-GI-OH\\YU-GI-OH.csproj",
+      "projectUniqueName": "C:\\Users\\egome\\Documents\\Maui Course\\MauiUdemy\\YU-GI-OH\\YU-GI-OH.csproj",
       "projectName": "YU-GI-OH",
-      "projectPath": "C:\\Users\\egome\\Documents\\Maui Course\\YU-GI-OH\\YU-GI-OH.csproj",
+      "projectPath": "C:\\Users\\egome\\Documents\\Maui Course\\MauiUdemy\\YU-GI-OH\\YU-GI-OH.csproj",
       "packagesPath": "C:\\Users\\egome\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\egome\\Documents\\Maui Course\\YU-GI-OH\\obj\\",
+      "outputPath": "C:\\Users\\egome\\Documents\\Maui Course\\MauiUdemy\\YU-GI-OH\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [

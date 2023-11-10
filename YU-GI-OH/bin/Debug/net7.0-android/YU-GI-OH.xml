@@ -4,7 +4,24 @@
         <name>YU-GI-OH</name>
     </assembly>
     <members>
+        <member name="T:YU_GI_OH.ViewModel.CardDetailPageViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:YU_GI_OH.ViewModel.CardDetailPageViewModel.Card">
+            <inheritdoc cref="F:YU_GI_OH.ViewModel.CardDetailPageViewModel.card"/>
+        </member>
+        <member name="P:YU_GI_OH.ViewModel.CardDetailPageViewModel.CardDetail">
+            <inheritdoc cref="F:YU_GI_OH.ViewModel.CardDetailPageViewModel.cardDetail"/>
+        </member>
+        <member name="F:YU_GI_OH.ViewModel.CardDetailPageViewModel.apearingCommand">
+            <summary>The backing field for <see cref="P:YU_GI_OH.ViewModel.CardDetailPageViewModel.ApearingCommand"/>.</summary>
+        </member>
+        <member name="P:YU_GI_OH.ViewModel.CardDetailPageViewModel.ApearingCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:YU_GI_OH.ViewModel.CardDetailPageViewModel.OnApearing"/>.</summary>
+        </member>
         <member name="T:YU_GI_OH.ViewModel.CardsPageViewModel">
+            <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
         </member>
@@ -17,6 +34,12 @@
         <member name="P:YU_GI_OH.ViewModel.CardsPageViewModel.ApearingCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:YU_GI_OH.ViewModel.CardsPageViewModel.OnApearing"/>.</summary>
         </member>
+        <member name="F:YU_GI_OH.ViewModel.CardsPageViewModel.selectedCardCommand">
+            <summary>The backing field for <see cref="P:YU_GI_OH.ViewModel.CardsPageViewModel.SelectedCardCommand"/>.</summary>
+        </member>
+        <member name="P:YU_GI_OH.ViewModel.CardsPageViewModel.SelectedCardCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:YU_GI_OH.ViewModel.CardsPageViewModel.SelectedCard(YU_GI_OH.Model.Card)"/>.</summary>
+        </member>
         <member name="T:YU_GI_OH.ViewModel.MainPageViewModel">
             <inheritdoc/>
         </member>
@@ -24,7 +47,7 @@
             <summary>The backing field for <see cref="P:YU_GI_OH.ViewModel.MainPageViewModel.SelectedItemCommand"/>.</summary>
         </member>
         <member name="P:YU_GI_OH.ViewModel.MainPageViewModel.SelectedItemCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:YU_GI_OH.ViewModel.MainPageViewModel.SelectedItem(YU_GI_OH.Model.DeckInfo)"/>.</summary>
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:YU_GI_OH.ViewModel.MainPageViewModel.SelectedItem(YU_GI_OH.Model.DeckInfo)"/>.</summary>
         </member>
         <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Button.TextColorTo(Microsoft.Maui.Controls.Button,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
             <summary>
@@ -131,6 +154,12 @@
             for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
             </summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Card">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Card" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CardDetail">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CardDetail" generated properties.</summary>
+        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.DeckInfo">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "DeckInfo" generated properties.</summary>
         </member>
@@ -139,6 +168,12 @@
             A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
             for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
             </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Card">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Card" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CardDetail">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CardDetail" generated properties.</summary>
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.DeckInfo">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "DeckInfo" generated properties.</summary>
