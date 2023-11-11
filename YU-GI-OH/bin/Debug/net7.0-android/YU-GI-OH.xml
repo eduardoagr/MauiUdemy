@@ -6,19 +6,9 @@
     <members>
         <member name="T:YU_GI_OH.ViewModel.CardDetailPageViewModel">
             <inheritdoc/>
-            <inheritdoc/>
         </member>
         <member name="P:YU_GI_OH.ViewModel.CardDetailPageViewModel.Card">
             <inheritdoc cref="F:YU_GI_OH.ViewModel.CardDetailPageViewModel.card"/>
-        </member>
-        <member name="P:YU_GI_OH.ViewModel.CardDetailPageViewModel.CardDetail">
-            <inheritdoc cref="F:YU_GI_OH.ViewModel.CardDetailPageViewModel.cardDetail"/>
-        </member>
-        <member name="F:YU_GI_OH.ViewModel.CardDetailPageViewModel.apearingCommand">
-            <summary>The backing field for <see cref="P:YU_GI_OH.ViewModel.CardDetailPageViewModel.ApearingCommand"/>.</summary>
-        </member>
-        <member name="P:YU_GI_OH.ViewModel.CardDetailPageViewModel.ApearingCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:YU_GI_OH.ViewModel.CardDetailPageViewModel.OnApearing"/>.</summary>
         </member>
         <member name="T:YU_GI_OH.ViewModel.CardsPageViewModel">
             <inheritdoc/>
@@ -27,6 +17,9 @@
         </member>
         <member name="P:YU_GI_OH.ViewModel.CardsPageViewModel.DeckInfo">
             <inheritdoc cref="F:YU_GI_OH.ViewModel.CardsPageViewModel.deckInfo"/>
+        </member>
+        <member name="P:YU_GI_OH.ViewModel.CardsPageViewModel.IsBusy">
+            <inheritdoc cref="F:YU_GI_OH.ViewModel.CardsPageViewModel.isBusy"/>
         </member>
         <member name="F:YU_GI_OH.ViewModel.CardsPageViewModel.apearingCommand">
             <summary>The backing field for <see cref="P:YU_GI_OH.ViewModel.CardsPageViewModel.ApearingCommand"/>.</summary>
@@ -157,11 +150,11 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Card">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Card" generated properties.</summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CardDetail">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CardDetail" generated properties.</summary>
-        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.DeckInfo">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "DeckInfo" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsBusy">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsBusy" generated properties.</summary>
         </member>
         <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs">
             <summary>
@@ -172,11 +165,11 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Card">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Card" generated properties.</summary>
         </member>
-        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CardDetail">
-            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CardDetail" generated properties.</summary>
-        </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.DeckInfo">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "DeckInfo" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsBusy">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsBusy" generated properties.</summary>
         </member>
     </members>
 </doc>

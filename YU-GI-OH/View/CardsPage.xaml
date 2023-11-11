@@ -25,12 +25,17 @@
         ItemsLayout="VerticalGrid, 4"
         ItemsSource="{Binding CardList}"
         SelectionMode="None">
+        <CollectionView.EmptyView>
+            <ActivityIndicator Color="Purple" IsRunning="{Binding IsBusy}" WidthRequest="80" HeightRequest="80"/>
+        </CollectionView.EmptyView>
         <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="model:Card">
                 <Image
                     Margin="10"
                     Aspect="AspectFit"
-                    Source="{Binding ImageBytes, Converter={StaticResource ArrayToImage}}">
+                    MinimumHeightRequest="100"
+                    MinimumWidthRequest="100"
+                    Source="{Binding imageBytes, Converter={StaticResource ArrayToImage}}">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer
                             Command="{Binding Source={x:Reference cardsPage}, Path=BindingContext.SelectedCardCommand}"

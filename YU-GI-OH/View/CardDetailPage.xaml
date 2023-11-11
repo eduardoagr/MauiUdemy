@@ -11,28 +11,59 @@
 
     <ContentPage.Resources>
         <converter:NullToEmptyStringConverter x:Key="NullConverter" />
+        <converter:ByteArrayToImageConverter x:Key="ImageConverter" />
     </ContentPage.Resources>
-    
-    <ContentPage.Behaviors>
-        <mct:EventToCommandBehavior
-            Command="{Binding ApearingCommand}"
-            EventName="Appearing" />
-    </ContentPage.Behaviors>
 
-
-    <Grid RowDefinitions="200,*,*,*">
+    <Grid
+        Padding="20"
+        ColumnDefinitions="*,*"
+        RowDefinitions="200,*">
 
         <Image
-            Margin="20"
-            HorizontalOptions="CenterAndExpand"
-            Source="{Binding Card.cardImageUrl}" />
+            HeightRequest="160"
+            HorizontalOptions="Start"
+            Source="{Binding Card.imageBytes, Converter={StaticResource ImageConverter}}"
+            VerticalOptions="Start" />
+        <VerticalStackLayout Grid.Column="2">
+            <Label
+                FontAttributes="Bold"
+                Text="{Binding Card.atk, StringFormat='Attack: {0}'}"
+                VerticalTextAlignment="Start" />
+            <Label
+                FontAttributes="Bold"
+                Text="{Binding Card.def, StringFormat='Defense: {0}'}"
+                VerticalTextAlignment="Start" />
+            <Label
+                FontAttributes="Bold"
+                Text="{Binding Card.Type, StringFormat='Type: {0}'}"
+                VerticalTextAlignment="Start" />
+            <Label
+                FontAttributes="Bold"
+                Text="{Binding Card.FrameType, StringFormat='FrameType: {0}'}"
+                VerticalTextAlignment="Start" />
+            <Label
+                FontAttributes="Bold"
+                Text="{Binding Card.Level, StringFormat='Level: {0}'}"
+                VerticalTextAlignment="Start" />
+            <Label
+                FontAttributes="Bold"
+                Text="{Binding Card.Attribute, StringFormat='Attribute: {0}'}"
+                VerticalTextAlignment="Start" />
+            <Label
+                FontAttributes="Bold"
+                Text="{Binding Card.Race, StringFormat='Race: {0}'}"
+                VerticalTextAlignment="Start" />
+        </VerticalStackLayout>
 
         <Label
             Grid.Row="2"
-            Text="{Binding CardDetail.atk, Converter={StaticResource NullConverter}}" />
-        <Label
-            Grid.Row="3"
-            Text="{Binding CardDetail.def, Converter={StaticResource NullConverter}}" />
+            Grid.ColumnSpan="2"
+            FontAttributes="Bold"
+            FontSize="18"
+            HorizontalTextAlignment="Center"
+            Text="{Binding Card.description}" />
+
+
     </Grid>
 
 </ContentPage>

@@ -4,6 +4,8 @@ global using CommunityToolkit.Mvvm.Input;
 
 global using Microsoft.Extensions.Logging;
 
+global using Newtonsoft.Json;
+
 global using System.Collections.ObjectModel;
 global using System.Diagnostics;
 global using System.Globalization;
@@ -38,7 +40,7 @@ public static class MauiProgram {
         builder.Services.AddSingleton<IHttpService, HttpService>();
         builder.Services.AddSingleton<AppShell>();
         builder.Services.AddSingleton<MainPage>();
-        builder.Services.AddSingleton<CardsPage>();
+        builder.Services.AddTransient<CardsPage>();
         builder.Services.AddTransient<CardDetailPage>();
         builder.Services.AddTransient<CardDetailPageViewModel>();
         builder.Services.AddSingleton<MainPageViewModel>();

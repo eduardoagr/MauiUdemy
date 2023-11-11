@@ -6,10 +6,16 @@ public partial class CardsPageViewModel(IHttpService httpService) : ObservableOb
     [ObservableProperty]
     DeckInfo deckInfo;
 
+    [ObservableProperty]
+    bool isBusy;
+
     public ObservableCollection<Card> CardList { get; } = new ObservableCollection<Card>();
+
+
 
     [RelayCommand]
     async Task OnApearing() {
+
         await GetCardNamesAsync(DeckInfo.deckName);
     }
 
@@ -27,22 +33,34 @@ public partial class CardsPageViewModel(IHttpService httpService) : ObservableOb
 
 
     public async Task GetCardNamesAsync(string deckName) {
-
-        var rootobject = await httpService.GetAsync($"https://yugiohprices.com/api/set_data/{deckName}");
-
-        var jsonString = JsonSerializer.Serialize(rootobject);
-
-        var data = JsonSerializer.Deserialize<Rootobject>(jsonString);
-
-
         CardList.Clear();
-        foreach (var card in data.data.cards) {
 
-            var encodedCardName = Uri.EscapeDataString(card.name);
+        IsBusy = true;
 
-            card.ImageBytes = await httpService.GetByteArrayAsync($"http://yugiohprices.com/api/card_image/{encodedCardName}");
+        var cards = await httpService.GetAsync<CardInfo>($"https://yugiohprices.com/api/set_data/{deckName}");
 
-            CardList.Add(card);
+
+        if (cards != null) {
+
+            foreach (var card in cards.data.cards) {
+
+                var encodedName = Uri.EscapeDataString(card.name);
+
+                var cardDetail = await httpService.GetAsync<CardDetail>(
+                    $"https://db.ygoprodeck.com/api/v7/cardinfo.php?name={encodedName}");
+
+                card.id = cardDetail.Data.FirstOrDefault().Id;
+                card.description = cardDetail.Data.FirstOrDefault().Desc;
+                card.atk = cardDetail.Data.FirstOrDefault().Atk;
+                card.def = cardDetail.Data.FirstOrDefault().Def;
+                card.Race = cardDetail.Data.FirstOrDefault().Race;
+                card.Attribute = cardDetail.Data.FirstOrDefault().Attribute;
+                card.imageBytes = await httpService.GetByteArrayAsync(card.image_url);
+
+                CardList.Add(card);
+            }
         }
+
+        IsBusy = false;
     }
 }

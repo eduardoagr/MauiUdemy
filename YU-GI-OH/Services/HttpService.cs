@@ -1,13 +1,16 @@
 ﻿namespace YU_GI_OH.Services;
 public class HttpService(HttpClient client) : IHttpService {
-    public async Task<object> GetAsync(string url) {
+    public async Task<T> GetAsync<T>(string url) {
 
         try {
 
             var response = await client.GetAsync(url);
             if (response.IsSuccessStatusCode) {
 
-                var data = await response.Content.ReadFromJsonAsync<object>();
+                var json = await response.Content.ReadAsStringAsync();
+                Debug.WriteLine($"Received JSON: {json}");
+
+                var data = await response.Content.ReadFromJsonAsync<T>();
                 return data;
             }
         } catch (Exception e) {

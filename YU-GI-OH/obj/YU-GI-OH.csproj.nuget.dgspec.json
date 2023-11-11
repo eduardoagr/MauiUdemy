@@ -94,6 +94,10 @@
               "version": "[7.0.96, )",
               "autoReferenced": true
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
             "System.Text.Json": {
               "target": "Package",
               "version": "[7.0.3, )"
@@ -219,6 +223,10 @@
               "version": "[7.0.96, )",
               "autoReferenced": true
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
             "System.Text.Json": {
               "target": "Package",
               "version": "[7.0.3, )"
@@ -288,6 +296,10 @@
               "target": "Package",
               "version": "[7.0.96, )",
               "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             },
             "System.Text.Json": {
               "target": "Package",
@@ -369,6 +381,10 @@
               "target": "Package",
               "version": "[1.2.221209.1, )",
               "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             },
             "System.Text.Json": {
               "target": "Package",
