@@ -1,14 +1,20 @@
-﻿<?xml version = "1.0" encoding = "UTF-8" ?>
-<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:YU_GI_OH"
-             x:Class="YU_GI_OH.App">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Application
+    x:Class="YU_GI_OH.App"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:YU_GI_OH"
+    xmlns:local="clr-namespace:YU_GI_OH">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <!-- Add your converter definition here -->
+            <converter:ByteArrayToImageConverter x:Key="ArrayToImage" />
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

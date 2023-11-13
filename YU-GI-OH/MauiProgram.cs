@@ -18,13 +18,15 @@ global using YU_GI_OH.Services;
 global using YU_GI_OH.View;
 global using YU_GI_OH.ViewModel;
 
+using SkiaSharp.Views.Maui.Controls.Hosting;
+
 namespace YU_GI_OH;
 public static class MauiProgram {
     public static MauiApp CreateMauiApp() {
         var builder = MauiApp.CreateBuilder();
         builder
             .UseMauiApp<App>()
-            .UseMauiCommunityToolkit()
+            .UseSkiaSharp()
             .ConfigureFonts(fonts => {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
