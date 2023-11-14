@@ -54,8 +54,18 @@ public partial class CardsPageViewModel(IHttpService httpService) : ObservableOb
                 card.atk = cardDetail.Data.FirstOrDefault().Atk;
                 card.def = cardDetail.Data.FirstOrDefault().Def;
                 card.Race = cardDetail.Data.FirstOrDefault().Race;
+                card.Level = cardDetail.Data.FirstOrDefault().Level;
                 card.Attribute = cardDetail.Data.FirstOrDefault().Attribute;
-                card.imageBytes = await httpService.GetByteArrayAsync(card.image_url);
+
+
+                var path = Path.Combine(FileSystem.CacheDirectory, card.id.ToString() + "jpg");
+                if (!File.Exists(path)) {
+
+                    var file = File.Create(path);
+                    file.Write(await httpService.GetByteArrayAsync(card.image_url));
+                }
+
+                card.image_path = path;
 
                 CardList.Add(card);
             }

@@ -15,7 +15,7 @@
         <Image
             HeightRequest="160"
             HorizontalOptions="Start"
-            Source="{Binding Card.imageBytes, Converter={StaticResource ImageConverter}}"
+            Source="{Binding Card.image_path}"
             VerticalOptions="Start" />
         <VerticalStackLayout Grid.Column="2">
             <Label

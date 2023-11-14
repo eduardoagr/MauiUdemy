@@ -27,6 +27,8 @@ public class Card {
 
     public byte[] imageBytes { get; set; }
 
+    public string image_path { get; set; }
+
     [JsonProperty("type")]
     public string Type { get; set; }
 
