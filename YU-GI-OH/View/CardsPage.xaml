@@ -17,34 +17,33 @@
             EventName="Appearing" />
     </ContentPage.Behaviors>
 
+    <Grid>
+        <skia:SKLottieView
+            IsVisible="{Binding IsBusy}"
+            RepeatCount="-1"
+            Source="loading.json" />
 
-    <CollectionView
-        ItemsLayout="VerticalGrid, 4"
-        ItemsSource="{Binding CardList}"
-        SelectionMode="None">
-        <CollectionView.EmptyView>
-            <ActivityIndicator
-                HeightRequest="80"
-                IsRunning="{Binding IsBusy}"
-                WidthRequest="80"
-                Color="Purple" />
-        </CollectionView.EmptyView>
-        <CollectionView.ItemTemplate>
-            <DataTemplate x:DataType="model:Card">
-                <Image
-                    Margin="10"
-                    Aspect="AspectFit"
-                    MinimumHeightRequest="100"
-                    MinimumWidthRequest="100"
-                    Source="{Binding image_path}">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer
-                            Command="{Binding Source={x:Reference cardsPage}, Path=BindingContext.SelectedCardCommand}"
-                            CommandParameter="{Binding .}" />
-                    </Image.GestureRecognizers>
-                </Image>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+        <CollectionView IsVisible="{Binding ShowList}"
+            ItemsLayout="VerticalGrid, 4"
+            ItemsSource="{Binding CardList}"
+            SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Card">
+                    <Image
+                        Margin="10"
+                        Aspect="AspectFit"
+                        MinimumHeightRequest="100"
+                        MinimumWidthRequest="100"
+                        Source="{Binding image_path}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source={x:Reference cardsPage}, Path=BindingContext.SelectedCardCommand}"
+                                CommandParameter="{Binding .}" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 
 </ContentPage>

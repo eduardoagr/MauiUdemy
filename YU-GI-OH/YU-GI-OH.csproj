@@ -50,7 +50,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\Wait.gif" />
+	  <None Remove="Resources\Raw\loading.json" />
 	</ItemGroup>
 
 	<ItemGroup>

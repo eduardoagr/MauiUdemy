@@ -25,10 +25,6 @@ public class Card {
 
     public string image_url_small => $"https://images.ygoprodeck.com/images/cards_small/{id}.jpg";
 
-    public byte[] imageBytes { get; set; }
-
-    public string image_path { get; set; }
-
     [JsonProperty("type")]
     public string Type { get; set; }
 
@@ -43,5 +39,5 @@ public class Card {
 
     [JsonProperty("attribute")]
     public string Attribute { get; set; }
-
+    public string image_path { get; set; }
 }

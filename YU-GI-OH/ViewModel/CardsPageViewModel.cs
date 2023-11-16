@@ -9,6 +9,10 @@ public partial class CardsPageViewModel(IHttpService httpService) : ObservableOb
     [ObservableProperty]
     bool isBusy;
 
+    [ObservableProperty]
+    bool showList;
+
+
     public ObservableCollection<Card> CardList { get; } = new ObservableCollection<Card>();
 
 
@@ -35,6 +39,7 @@ public partial class CardsPageViewModel(IHttpService httpService) : ObservableOb
     public async Task GetCardNamesAsync(string deckName) {
         CardList.Clear();
 
+        ShowList = false;
         IsBusy = true;
 
         var cards = await httpService.GetAsync<CardInfo>($"https://yugiohprices.com/api/set_data/{deckName}");
@@ -54,7 +59,6 @@ public partial class CardsPageViewModel(IHttpService httpService) : ObservableOb
                 card.atk = cardDetail.Data.FirstOrDefault().Atk;
                 card.def = cardDetail.Data.FirstOrDefault().Def;
                 card.Race = cardDetail.Data.FirstOrDefault().Race;
-                card.Level = cardDetail.Data.FirstOrDefault().Level;
                 card.Attribute = cardDetail.Data.FirstOrDefault().Attribute;
 
 
@@ -72,5 +76,6 @@ public partial class CardsPageViewModel(IHttpService httpService) : ObservableOb
         }
 
         IsBusy = false;
+        ShowList = true;
     }
 }

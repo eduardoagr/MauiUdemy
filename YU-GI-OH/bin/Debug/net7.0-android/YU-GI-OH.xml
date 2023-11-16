@@ -21,6 +21,9 @@
         <member name="P:YU_GI_OH.ViewModel.CardsPageViewModel.IsBusy">
             <inheritdoc cref="F:YU_GI_OH.ViewModel.CardsPageViewModel.isBusy"/>
         </member>
+        <member name="P:YU_GI_OH.ViewModel.CardsPageViewModel.ShowList">
+            <inheritdoc cref="F:YU_GI_OH.ViewModel.CardsPageViewModel.showList"/>
+        </member>
         <member name="F:YU_GI_OH.ViewModel.CardsPageViewModel.apearingCommand">
             <summary>The backing field for <see cref="P:YU_GI_OH.ViewModel.CardsPageViewModel.ApearingCommand"/>.</summary>
         </member>
@@ -156,6 +159,9 @@
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsBusy">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsBusy" generated properties.</summary>
         </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ShowList">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ShowList" generated properties.</summary>
+        </member>
         <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs">
             <summary>
             A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
@@ -170,6 +176,9 @@
         </member>
         <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsBusy">
             <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsBusy" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ShowList">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ShowList" generated properties.</summary>
         </member>
     </members>
 </doc>
