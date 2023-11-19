@@ -45,7 +45,7 @@
                     Margin="10,5"
                     Command="{Binding closePopUpCommand}"
                     HorizontalOptions="Fill"
-                    Text="Login"
+                    Text="{Binding Data}"
                     VerticalOptions="EndAndExpand" />
             </VerticalStackLayout>
         </Border>
