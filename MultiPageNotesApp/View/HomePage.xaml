@@ -11,10 +11,6 @@
     Title="{Binding Title}"
     x:DataType="vm:HomePageViewModel">
 
-    <ContentPage.Resources>
-        <local:HexToColorConverter x:Key="HexToColorConverter"/>
-    </ContentPage.Resources>
-
     <ContentPage.ToolbarItems>
         <ToolbarItem Command="{Binding AddNewNoteCommand}">
             <ToolbarItem.IconImageSource>

@@ -55,7 +55,7 @@
             FontSize="60"
             HorizontalTextAlignment="Start"
             Text="{Static font:materialFont.Sticky_note_2}"
-            TextColor="{Binding Note.Color}"
+            TextColor="{Binding SelectedColor, Converter={StaticResource HexToColorConverter}}"
             VerticalTextAlignment="Center" />
 
         <StackLayout
@@ -68,7 +68,7 @@
             <BindableLayout.ItemTemplate>
                 <DataTemplate x:DataType="models:ColorItem">
                     <Ellipse
-                        Fill="{Binding Color}"
+                        Fill="{Binding Color, Converter={StaticResource HexToColorConverter}}"
                         HeightRequest="40"
                         Stroke="Black"
                         StrokeThickness="5"
